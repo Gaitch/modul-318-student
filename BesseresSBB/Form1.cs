@@ -91,30 +91,31 @@ namespace BesseresSBB
             livVerbindungen.Columns.Add("Ankunft", 120);
             livVerbindungen.Columns.Add("Dauer", 120);
 
-            livStationBoard.Columns.Add("Zeit", 120);
-            livStationBoard.Columns.Add("Nach", 120);
+            livStationBoard.Columns.Add("Zeit", 70);
+            livStationBoard.Columns.Add("Nach", 400);
+            livStationBoard.Columns.Add("Bus", 70);
 
-            // dtgVerbindungen.ColumnCount = 5;
+
         }
 
         private void btnFahrplanSuchen_Click(object sender, EventArgs e)
         {
-
             var transport = new Transport();
-            var connectionList = transport.GetStations(txtStation.Text);
+            var stationList = transport.GetStations(txtStation.Text);
 
-            string id = "1";
-           
-            transport = new Transport();
-            var stationBoard = transport.GetStationBoard(txtStation.Text, id);
+            var station = stationList.StationList[0];
+            string id = station.Id;
 
-            ListViewItem itemStation = new ListViewItem();
+            var stationboard = transport.GetStationBoard(txtStation.Text, id);
+            foreach ( var stationlist in stationboard.Entries)
+            {
+                DateTime Abfahrt = DateTime.Parse(stationlist.Stop.Departure.ToString());
+                ListViewItem itemStation = new ListViewItem(Abfahrt.ToString("hh.mm"));
+                itemStation.SubItems.Add(stationlist.To);
+                itemStation.SubItems.Add(stationlist.Number);
 
-            itemStation.SubItems.Add("test");
-            itemStation.SubItems.Add("test");
-  
-
-            livVerbindungen.Items.AddRange(new ListViewItem[] { itemStation });
+                livStationBoard.Items.AddRange(new ListViewItem[] { itemStation });
+            }
         }
     }
 }
