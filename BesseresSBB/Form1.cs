@@ -57,27 +57,17 @@ namespace BesseresSBB
 
                 livVerbindungen.Items.AddRange(new ListViewItem[] { itemVerbindung });
 
-                input = txtVon.Text;
-
-                var stations = transport.GetStations(input);
-
-                foreach (Station stationName in stations.StationList)
-                {
-                    txtVon.AutoCompleteCustomSource.Add(stationName.Name);
-                }
-                this.txtVon.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                this.txtVon.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             }
         }
 
-        
+
         private String KürzungDauer(string result)
         {
             String Dauer = result.Substring(3, 5);
             return Dauer;
         }
-        
+
         private void frmFahrplanApp_Load(object sender, EventArgs e)
         {
             livVerbindungen.Columns.Add("Von", 150);
@@ -90,8 +80,11 @@ namespace BesseresSBB
             livStationBoard.Columns.Add("Nach", 400);
             livStationBoard.Columns.Add("Bus", 70);
 
-            this.txtVon.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            livStation.Columns.Add("Stationsname", 500);
+
+            this.txtVon.AutoCompleteMode = AutoCompleteMode.Suggest;
             this.txtVon.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
         }
 
 
@@ -112,6 +105,8 @@ namespace BesseresSBB
                 itemStation.SubItems.Add(stationlist.Number);
 
                 livStationBoard.Items.AddRange(new ListViewItem[] { itemStation });
+
+
             }
         }
 
@@ -139,8 +134,66 @@ namespace BesseresSBB
         private void tbVon_TextChanged(object sender, EventArgs e)
         {
 
- 
-        
+
+
+        }
+
+        private void btnMap_Click(object sender, EventArgs e)
+        {
+            transport = new Transport();
+            Stations stations = transport.GetStations(txtStation.Text);
+
+            if (stations.StationList.Count > 0)
+            {
+                Station station = stations.StationList[0];
+                System.Diagnostics.Process.Start("https://www.google.ch/maps/search/" + station.Name + " haltestelle");
+            }
+            else
+            {
+                MessageBox.Show("Bitte Stationsnamen eingeben");
+            }
+        }
+
+        private void btnSationSuche_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void txtVon_TextChanged(object sender, EventArgs e)
+        {
+            input = txtVon.Text;
+
+            if (input.Length > 5)
+            {
+                transport = new Transport();
+                var stations = transport.GetStations(input);
+
+                foreach (Station stationName in stations.StationList)
+                {
+                    txtVon.AutoCompleteCustomSource.Add(stationName.Name);
+                }
+                this.txtVon.AutoCompleteMode = AutoCompleteMode.Suggest;
+                this.txtVon.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            }
+        }
+
+        private void txtNach_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            input = txtNach.Text;
+
+            if (input.Length > 3)
+            {
+                transport = new Transport();
+                var stations = transport.GetStations(input);
+
+                foreach (Station stationName in stations.StationList)
+                {
+                    txtNach.AutoCompleteCustomSource.Add(stationName.Name);
+                }
+                this.txtNach.AutoCompleteMode = AutoCompleteMode.Suggest;
+                this.txtNach.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            }
         }
     }
 }
