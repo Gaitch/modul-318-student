@@ -1,6 +1,6 @@
 ﻿namespace BesseresSBB
 {
-    partial class Form1
+    partial class frmFahrplanApp
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -32,20 +32,20 @@
             this.tabVerbindungSuchen = new System.Windows.Forms.TabPage();
             this.livVerbindungen = new System.Windows.Forms.ListView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtNach = new System.Windows.Forms.ComboBox();
+            this.txtVon = new System.Windows.Forms.ComboBox();
             this.lblNach = new System.Windows.Forms.Label();
             this.lblVon = new System.Windows.Forms.Label();
-            this.txtVon = new System.Windows.Forms.TextBox();
-            this.txtNach = new System.Windows.Forms.TextBox();
             this.search = new System.Windows.Forms.Button();
             this.switchStations = new System.Windows.Forms.Button();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.tabFahrplan = new System.Windows.Forms.TabPage();
+            this.livStationBoard = new System.Windows.Forms.ListView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblStation = new System.Windows.Forms.Label();
             this.txtStation = new System.Windows.Forms.TextBox();
             this.btnFahrplanSuchen = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.livStationBoard = new System.Windows.Forms.ListView();
             this.tabctrlMenu.SuspendLayout();
             this.tabVerbindungSuchen.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -80,27 +80,44 @@
             // livVerbindungen
             // 
             this.livVerbindungen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.livVerbindungen.Location = new System.Drawing.Point(8, 175);
+            this.livVerbindungen.Location = new System.Drawing.Point(8, 158);
             this.livVerbindungen.Name = "livVerbindungen";
-            this.livVerbindungen.Size = new System.Drawing.Size(582, 204);
+            this.livVerbindungen.Size = new System.Drawing.Size(582, 340);
             this.livVerbindungen.TabIndex = 12;
             this.livVerbindungen.TileSize = new System.Drawing.Size(50, 50);
             this.livVerbindungen.UseCompatibleStateImageBehavior = false;
             this.livVerbindungen.View = System.Windows.Forms.View.Details;
+            this.livVerbindungen.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.livVerbindungen_MouseDoubleClick);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtNach);
+            this.panel1.Controls.Add(this.txtVon);
             this.panel1.Controls.Add(this.lblNach);
             this.panel1.Controls.Add(this.lblVon);
-            this.panel1.Controls.Add(this.txtVon);
-            this.panel1.Controls.Add(this.txtNach);
             this.panel1.Controls.Add(this.search);
             this.panel1.Controls.Add(this.switchStations);
             this.panel1.Controls.Add(this.dateTimePicker);
-            this.panel1.Location = new System.Drawing.Point(8, 23);
+            this.panel1.Location = new System.Drawing.Point(8, 6);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(582, 146);
             this.panel1.TabIndex = 11;
+            // 
+            // txtNach
+            // 
+            this.txtNach.FormattingEnabled = true;
+            this.txtNach.Location = new System.Drawing.Point(332, 39);
+            this.txtNach.Name = "txtNach";
+            this.txtNach.Size = new System.Drawing.Size(238, 32);
+            this.txtNach.TabIndex = 8;
+            // 
+            // txtVon
+            // 
+            this.txtVon.FormattingEnabled = true;
+            this.txtVon.Location = new System.Drawing.Point(19, 40);
+            this.txtVon.Name = "txtVon";
+            this.txtVon.Size = new System.Drawing.Size(238, 32);
+            this.txtVon.TabIndex = 7;
             // 
             // lblNach
             // 
@@ -122,22 +139,6 @@
             this.lblVon.TabIndex = 0;
             this.lblVon.Text = "Von";
             // 
-            // txtVon
-            // 
-            this.txtVon.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVon.Location = new System.Drawing.Point(19, 40);
-            this.txtVon.Name = "txtVon";
-            this.txtVon.Size = new System.Drawing.Size(220, 29);
-            this.txtVon.TabIndex = 2;
-            // 
-            // txtNach
-            // 
-            this.txtNach.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNach.Location = new System.Drawing.Point(350, 40);
-            this.txtNach.Name = "txtNach";
-            this.txtNach.Size = new System.Drawing.Size(220, 29);
-            this.txtNach.TabIndex = 3;
-            // 
             // search
             // 
             this.search.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -152,9 +153,9 @@
             // switchStations
             // 
             this.switchStations.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.switchStations.Location = new System.Drawing.Point(267, 40);
+            this.switchStations.Location = new System.Drawing.Point(267, 39);
             this.switchStations.Name = "switchStations";
-            this.switchStations.Size = new System.Drawing.Size(59, 29);
+            this.switchStations.Size = new System.Drawing.Size(59, 33);
             this.switchStations.TabIndex = 4;
             this.switchStations.Text = "<--->";
             this.switchStations.UseVisualStyleBackColor = true;
@@ -179,6 +180,16 @@
             this.tabFahrplan.Size = new System.Drawing.Size(600, 504);
             this.tabFahrplan.TabIndex = 1;
             this.tabFahrplan.Text = "Fahrplan";
+            // 
+            // livStationBoard
+            // 
+            this.livStationBoard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.livStationBoard.Location = new System.Drawing.Point(8, 160);
+            this.livStationBoard.Name = "livStationBoard";
+            this.livStationBoard.Size = new System.Drawing.Size(586, 299);
+            this.livStationBoard.TabIndex = 13;
+            this.livStationBoard.UseCompatibleStateImageBehavior = false;
+            this.livStationBoard.View = System.Windows.Forms.View.Details;
             // 
             // panel2
             // 
@@ -229,25 +240,15 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // livStationBoard
-            // 
-            this.livStationBoard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.livStationBoard.Location = new System.Drawing.Point(8, 160);
-            this.livStationBoard.Name = "livStationBoard";
-            this.livStationBoard.Size = new System.Drawing.Size(586, 299);
-            this.livStationBoard.TabIndex = 13;
-            this.livStationBoard.UseCompatibleStateImageBehavior = false;
-            this.livStationBoard.View = System.Windows.Forms.View.Details;
-            // 
-            // Form1
+            // frmFahrplanApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(628, 560);
             this.Controls.Add(this.tabctrlMenu);
-            this.Name = "Form1";
+            this.Name = "frmFahrplanApp";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.frmFahrplanApp_Load);
             this.tabctrlMenu.ResumeLayout(false);
             this.tabVerbindungSuchen.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -266,8 +267,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblNach;
         private System.Windows.Forms.Label lblVon;
-        private System.Windows.Forms.TextBox txtVon;
-        private System.Windows.Forms.TextBox txtNach;
         private System.Windows.Forms.Button search;
         private System.Windows.Forms.Button switchStations;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
@@ -279,6 +278,8 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ListView livVerbindungen;
         private System.Windows.Forms.ListView livStationBoard;
+        private System.Windows.Forms.ComboBox txtNach;
+        private System.Windows.Forms.ComboBox txtVon;
     }
 }
 
