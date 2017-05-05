@@ -15,7 +15,6 @@ namespace BesseresSBB
     {
         private ITransport transport;
         private String input;
-        private bool needAutoCompleteUpdate;
         public frmFahrplanApp()
         {
             InitializeComponent();
