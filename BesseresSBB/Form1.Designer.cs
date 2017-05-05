@@ -46,26 +46,17 @@
             this.lblStation = new System.Windows.Forms.Label();
             this.txtStation = new System.Windows.Forms.TextBox();
             this.btnFahrplanSuchen = new System.Windows.Forms.Button();
-            this.stationSuche = new System.Windows.Forms.TabPage();
-            this.livStation = new System.Windows.Forms.ListView();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtStations = new System.Windows.Forms.TextBox();
-            this.btnSationSuche = new System.Windows.Forms.Button();
             this.tabctrlMenu.SuspendLayout();
             this.tabVerbindungSuchen.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabFahrplan.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.stationSuche.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabctrlMenu
             // 
             this.tabctrlMenu.Controls.Add(this.tabVerbindungSuchen);
             this.tabctrlMenu.Controls.Add(this.tabFahrplan);
-            this.tabctrlMenu.Controls.Add(this.stationSuche);
             this.tabctrlMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabctrlMenu.Location = new System.Drawing.Point(12, 12);
             this.tabctrlMenu.Name = "tabctrlMenu";
@@ -78,10 +69,10 @@
             this.tabVerbindungSuchen.BackColor = System.Drawing.Color.Gainsboro;
             this.tabVerbindungSuchen.Controls.Add(this.livVerbindungen);
             this.tabVerbindungSuchen.Controls.Add(this.panel1);
-            this.tabVerbindungSuchen.Location = new System.Drawing.Point(4, 33);
+            this.tabVerbindungSuchen.Location = new System.Drawing.Point(4, 34);
             this.tabVerbindungSuchen.Name = "tabVerbindungSuchen";
             this.tabVerbindungSuchen.Padding = new System.Windows.Forms.Padding(3);
-            this.tabVerbindungSuchen.Size = new System.Drawing.Size(600, 504);
+            this.tabVerbindungSuchen.Size = new System.Drawing.Size(600, 503);
             this.tabVerbindungSuchen.TabIndex = 0;
             this.tabVerbindungSuchen.Text = "Verbindung suchen";
             // 
@@ -184,10 +175,10 @@
             this.tabFahrplan.BackColor = System.Drawing.Color.LightGray;
             this.tabFahrplan.Controls.Add(this.livStationBoard);
             this.tabFahrplan.Controls.Add(this.panel2);
-            this.tabFahrplan.Location = new System.Drawing.Point(4, 33);
+            this.tabFahrplan.Location = new System.Drawing.Point(4, 34);
             this.tabFahrplan.Name = "tabFahrplan";
             this.tabFahrplan.Padding = new System.Windows.Forms.Padding(3);
-            this.tabFahrplan.Size = new System.Drawing.Size(600, 504);
+            this.tabFahrplan.Size = new System.Drawing.Size(600, 503);
             this.tabFahrplan.TabIndex = 1;
             this.tabFahrplan.Text = "Fahrplan";
             // 
@@ -252,67 +243,6 @@
             this.btnFahrplanSuchen.UseVisualStyleBackColor = true;
             this.btnFahrplanSuchen.Click += new System.EventHandler(this.btnFahrplanSuchen_Click);
             // 
-            // stationSuche
-            // 
-            this.stationSuche.BackColor = System.Drawing.Color.Silver;
-            this.stationSuche.Controls.Add(this.livStation);
-            this.stationSuche.Controls.Add(this.panel3);
-            this.stationSuche.Location = new System.Drawing.Point(4, 33);
-            this.stationSuche.Name = "stationSuche";
-            this.stationSuche.Padding = new System.Windows.Forms.Padding(3);
-            this.stationSuche.Size = new System.Drawing.Size(600, 504);
-            this.stationSuche.TabIndex = 2;
-            this.stationSuche.Text = "Station Suchen";
-            // 
-            // livStation
-            // 
-            this.livStation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.livStation.Location = new System.Drawing.Point(7, 146);
-            this.livStation.Name = "livStation";
-            this.livStation.Size = new System.Drawing.Size(586, 352);
-            this.livStation.TabIndex = 15;
-            this.livStation.UseCompatibleStateImageBehavior = false;
-            this.livStation.View = System.Windows.Forms.View.Details;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.txtStations);
-            this.panel3.Controls.Add(this.btnSationSuche);
-            this.panel3.Location = new System.Drawing.Point(7, 6);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(586, 134);
-            this.panel3.TabIndex = 14;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(257, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 24);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Station";
-            // 
-            // txtStations
-            // 
-            this.txtStations.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStations.Location = new System.Drawing.Point(156, 40);
-            this.txtStations.Name = "txtStations";
-            this.txtStations.Size = new System.Drawing.Size(266, 29);
-            this.txtStations.TabIndex = 1;
-            // 
-            // btnSationSuche
-            // 
-            this.btnSationSuche.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSationSuche.Location = new System.Drawing.Point(221, 75);
-            this.btnSationSuche.Name = "btnSationSuche";
-            this.btnSationSuche.Size = new System.Drawing.Size(130, 37);
-            this.btnSationSuche.TabIndex = 0;
-            this.btnSationSuche.Text = "Suche";
-            this.btnSationSuche.UseVisualStyleBackColor = true;
-            this.btnSationSuche.Click += new System.EventHandler(this.btnSationSuche_Click);
-            // 
             // frmFahrplanApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -329,9 +259,6 @@
             this.tabFahrplan.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.stationSuche.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -351,17 +278,11 @@
         private System.Windows.Forms.Label lblStation;
         private System.Windows.Forms.TextBox txtStation;
         private System.Windows.Forms.Button btnFahrplanSuchen;
-        private System.Windows.Forms.TabPage stationSuche;
         private System.Windows.Forms.ListView livVerbindungen;
         private System.Windows.Forms.ListView livStationBoard;
         private System.Windows.Forms.ComboBox txtNach;
         private System.Windows.Forms.ComboBox txtVon;
         private System.Windows.Forms.Button btnMap;
-        private System.Windows.Forms.ListView livStation;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtStations;
-        private System.Windows.Forms.Button btnSationSuche;
     }
 }
 

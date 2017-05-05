@@ -80,7 +80,7 @@ namespace BesseresSBB
             livStationBoard.Columns.Add("Nach", 400);
             livStationBoard.Columns.Add("Bus", 70);
 
-            livStation.Columns.Add("Stationsname", 500);
+            
 
             this.txtVon.AutoCompleteMode = AutoCompleteMode.Suggest;
             this.txtVon.AutoCompleteSource = AutoCompleteSource.CustomSource;
